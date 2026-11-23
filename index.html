@@ -1,233 +1,135 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="light">
+<html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ezra Arta Praditya — Portofolio</title>
-<meta name="description" content="Portofolio pribadi berisi profil, pengalaman, dan karya.">
-
-<!-- Google Fonts: Poppins (judul) & Inter (teks) -->
+<title>Ezra Arta Praditya — Desainer Grafis</title>
+<meta name="description" content="Portofolio Ezra Arta Praditya, desainer grafis: desain media sosial, desain cetak, dan logo brand.">
+<meta property="og:title" content="Ezra Arta Praditya — Desainer Grafis">
+<meta property="og:description" content="Desain media sosial, desain cetak, dan logo brand.">
+<meta property="og:image" content="assets/foto_putih.jpg">
+<script>
+/* terapkan tema sebelum halaman tampil agar tidak berkedip */
+try{var t=localStorage.getItem('portfolio-theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t)}catch(e){}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<div class="progress" id="progress"></div>
 
-<!-- =========================================================
-     HEADER & NAVIGASI
-     Klik tombol hamburger (kanan atas) akan memunculkan panel
-     berisi 4 menu: Home, Profil, Pengalaman, Kontak (CTA)
-========================================================= -->
-<header class="site-header">
-  <div class="header-inner">
-    <a href="#home" class="brand">
-      <!-- GANTI: nama singkat / inisial kamu -->
-      Ezra Arta Praditya
-    </a>
-
-    <div class="header-actions">
-      <!-- Tombol ganti tema terang/gelap -->
-      <button id="themeToggle" class="theme-toggle" type="button" aria-label="Ganti tema terang/gelap">
-        <span class="theme-icon sun" aria-hidden="true">☀</span>
-        <span class="theme-icon moon" aria-hidden="true">☾</span>
+<header class="site-header" id="top">
+  <div class="bar">
+    <a href="#home" class="brand">Ezra Arta Praditya</a>
+    <nav id="nav" class="nav" aria-label="Menu utama">
+      <a href="#profil">Profil</a>
+      <a href="#karya">Karya</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <div class="actions">
+      <button id="themeToggle" class="icon-btn" type="button" aria-label="Ganti tema terang/gelap">
+        <span class="sun" aria-hidden="true">☀</span><span class="moon" aria-hidden="true">☾</span>
       </button>
-
-      <!-- Tombol hamburger pemicu navigasi -->
-      <button id="navToggle" class="nav-toggle" type="button" aria-label="Buka menu navigasi" aria-expanded="false">
-        <span></span><span></span><span></span>
+      <a href="#kontak" class="btn btn-sm hide-sm">Hubungi saya</a>
+      <button id="navToggle" class="icon-btn menu-btn" type="button" aria-label="Buka menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span>
       </button>
     </div>
   </div>
-
-  <!-- Panel navigasi (muncul saat hamburger diklik) -->
-  <nav id="navPanel" class="nav-panel" aria-hidden="true">
-    <ul>
-      <li><a href="#home" class="nav-link">Home</a></li>
-      <li><a href="#profil" class="nav-link">Profil</a></li>
-      <li><a href="#pengalaman" class="nav-link">Proyek</a></li>
-      <li><a href="#kontak" class="nav-link nav-cta">Hubungi Saya →</a></li>
-    </ul>
-  </nav>
-  <div id="navOverlay" class="nav-overlay"></div>
 </header>
 
 <main>
-
-  <!-- =========================================================
-       SECTION 1 — HOME (halaman utama)
-       Berisi foto diri + informasi singkat
-  ========================================================= -->
-  <section id="home" class="section hero">
-    <div class="hero-inner">
-      <div class="hero-text fade-in">
-        <p class="eyebrow">Halo, perkenalkan</p>
-        <h1>Saya <span class="highlight">Ezra Arta Praditya</span></h1>
-        <!-- GANTI: profesi / peran singkat -->
-        <p class="hero-role">Graphic Designer</p>
-        <!-- GANTI: deskripsi singkat tentang diri kamu (2-3 kalimat) -->
-        <p class="hero-desc">
-          Motivated new graduate with strong learning agility, excellent team collaboration skills, and a proven track record of delivering quality work on time.
-        </p>
-        <a href="#pengalaman" class="btn btn-primary">Lihat Karya Saya</a>
-      </div>
-
-      <div class="hero-photo fade-in">
-        <div class="photo-blob">
-          <!-- ===================================================
-               GANTI DI SINI: masukkan foto diri kamu.
-               Hapus komentar di bawah lalu isi src="images/profil.jpg"
-               Contoh: <img src="images/profil.jpg" alt="Foto Nama Kamu">
-          =================================================== -->
-          <img src="assets/foto_putih.jpg" alt="Foto Nama Kamu" onerror="this.style.display='none'; this.parentElement.classList.add('photo-empty')">
-          <span class="photo-placeholder-label">Taruh foto diri di images/profil.jpg</span>
+  <section id="home" class="hero">
+    <svg class="hero-line" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <path pathLength="1" d="M-20 540 C 200 440, 320 640, 540 500 S 880 320, 1010 430 S 1180 220, 1240 130"/>
+      <path pathLength="1" d="M-20 580 C 240 500, 380 660, 600 560 S 920 400, 1060 480 S 1190 330, 1240 280"/>
+    </svg>
+    <div class="wrap hero-grid">
+      <div class="hero-text">
+        <p class="role">Desainer <span id="typed">grafis</span><i class="caret" aria-hidden="true"></i></p>
+        <h1><span>Ezra</span><span>Arta</span><span>Praditya</span></h1>
+        <p class="lead">Lulusan baru yang cepat belajar, senang bekerja dalam tim, dan terbiasa menyelesaikan desain berkualitas tepat waktu.</p>
+        <div class="cta">
+          <a href="#karya" class="btn">Lihat karya</a>
+          <a href="mailto:ezraartapra@gmail.com" class="btn btn-ghost">Kirim email</a>
         </div>
       </div>
-    </div>
-    <a href="#profil" class="scroll-cue" aria-label="Gulir ke bawah">↓</a>
-  </section>
-
-  <!-- =========================================================
-       SECTION 2 — PROFIL / DATA DIRI
-  ========================================================= -->
-  <section id="profil" class="section profil">
-    <div class="section-inner">
-      <p class="eyebrow">Profil</p>
-      <h2>Data Diri</h2>
-
-      <div class="profil-grid">
-        <div class="profil-bio fade-in">
-          <!-- GANTI: bio lebih panjang tentang latar belakang kamu -->
-          <p>Lulusan SMK yang adaptif, pekerja keras, dan tepat waktu. Mahir desain presentasi, administrasi, pengolahan data, dan aplikasi komputer. Siap berkembang dalam tim.
-          </p>
-        </div>
-
-        <div class="profil-info fade-in">
-          <ul class="info-list">
-            <!-- GANTI: isi data diri sesuai kebutuhan -->
-            <li><span class="info-label">Nama</span><span class="info-value">Ezra Arta Praditya</span></li>
-            <li><span class="info-label">Domisili</span><span class="info-value">Tangerang, Banten, Indonesia</span></li>
-            <li><span class="info-label">Email</span><span class="info-value">ezraartapra@gmail.com</span></li>
-            <li><span class="info-label">Fokus</span><span class="info-value">Desain Grafis</span></li>
-          </ul>
-
-          <div class="skills">
-            <!-- GANTI: tambah/kurangi skill chip sesuai kebutuhan -->
-            <span class="skill-chip">Adobe Illustrator</span>
-            <span class="skill-chip">Canva</span>
-            <span class="skill-chip">SketchUp</span>
-            <span class="skill-chip">CorelDraw</span>
-          </div>
+      <div class="hero-photo">
+        <div class="arch">
+          <img src="assets/foto_putih.jpg" alt="Foto Ezra Arta Praditya" onerror="this.remove()">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- =========================================================
-       SECTION 3 — PENGALAMAN / KARYA
-       3 kategori card, tiap card diklik akan membuka modal
-       berisi daftar karya/project sesuai kategori (lihat script.js
-       bagian projectsData untuk menambahkan project)
-  ========================================================= -->
-  <section id="pengalaman" class="section pengalaman">
-    <div class="section-inner">
-      <p class="eyebrow">Portofolio</p>
-      <h2>Karya &amp; Proyek</h2>
-      <p class="section-desc">Klik salah satu kategori untuk melihat daftar karyanya.</p>
-
-      <div class="category-cards">
-        <!-- Setiap card punya atribut data-category yang harus SAMA
-             dengan key di projectsData pada script.js -->
-        <button class="category-card fade-in" data-category="kategori1" style="--card-accent: var(--accent-secondary)">
-          <span class="card-icon" aria-hidden="true">🎨</span>
-          <!-- GANTI: nama kategori 1 -->
-          <h3>Desain Digital</h3>
-          <p>Desain yang cocok dipublikasikan di media sosial.</p>
-          <span class="card-link">Lihat karya →</span>
-        </button>
-
-        <button class="category-card fade-in" data-category="kategori2" style="--card-accent: var(--accent-tertiary)">
-          <span class="card-icon" aria-hidden="true">💻</span>
-          <!-- GANTI: nama kategori 2 -->
-          <h3>Desain Cetak</h3>
-          <p>Desain yang siap untuk dicetak.</p>
-          <span class="card-link">Lihat karya →</span>
-        </button>
-
-        <button class="category-card fade-in" data-category="kategori3" style="--card-accent: var(--accent-primary)">
-          <span class="card-icon" aria-hidden="true">📷</span>
-          <!-- GANTI: nama kategori 3 -->
-          <h3>Desain Branding</h3>
-          <p>Desain yang digunakan untuk memperkenalkan sebuah Brand.</p>
-          <span class="card-link">Lihat karya →</span>
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Modal untuk menampilkan daftar karya per kategori -->
-  <div id="projectModal" class="modal" aria-hidden="true">
-    <div class="modal-overlay" id="modalOverlay"></div>
-    <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-      <button id="modalClose" class="modal-close" aria-label="Tutup">✕</button>
-      <h3 id="modalTitle">Judul Kategori</h3>
-      <div id="modalGrid" class="modal-grid">
-        <!-- Diisi otomatis oleh script.js -->
-      </div>
+  <div class="marquee" role="group" aria-label="Software yang saya gunakan">
+    <div class="track" id="track" aria-hidden="true">
+      <span class="tool"><b class="logo l-ai">Ai</b>Adobe Illustrator</span>
+      <span class="tool"><b class="logo l-cv">Cv</b>Canva</span>
+      <span class="tool"><b class="logo l-sk">Sk</b>SketchUp</span>
+      <span class="tool"><b class="logo l-cd">Cd</b>CorelDRAW</span>
     </div>
   </div>
 
-  <!-- Lightbox untuk menampilkan gambar karya secara penuh -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <div class="lightbox-overlay" id="lightboxOverlay"></div>
-    <div class="lightbox-box">
-      <button id="lightboxClose" class="lightbox-close" aria-label="Tutup">✕</button>
-      <img id="lightboxImg" src="" alt="">
-      <p id="lightboxCaption" class="lightbox-caption"></p>
+  <section id="profil" class="section alt">
+    <div class="wrap profil-grid">
+      <div>
+        <h2>Tentang saya</h2>
+        <p class="lead">Lulusan SMK yang adaptif, pekerja keras, dan tepat waktu. Mahir desain presentasi, administrasi, pengolahan data, dan aplikasi komputer. Siap berkembang dalam tim.</p>
+        <ul class="skills" aria-label="Keahlian">
+          <li>Adobe Illustrator</li><li>Canva</li><li>SketchUp</li><li>CorelDraw</li>
+        </ul>
+      </div>
+      <dl class="facts">
+        <div><dt>Nama</dt><dd>Ezra Arta Praditya</dd></div>
+        <div><dt>Domisili</dt><dd>Tangerang, Banten</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:ezraartapra@gmail.com">ezraartapra@gmail.com</a></dd></div>
+        <div><dt>Fokus</dt><dd>Desain grafis</dd></div>
+      </dl>
     </div>
-  </div>
+  </section>
 
-  <!-- =========================================================
-       SECTION 4 — KONTAK (paling bawah / footer)
-       Ini BERBEDA dari menu "Kontak" di navigasi (yang fokus CTA).
-       Bagian ini lebih ke keterangan/kanal kontak.
-  ========================================================= -->
-  <footer id="kontak" class="section kontak">
-    <div class="section-inner">
-      <p class="eyebrow">Kontak</p>
-      <h2>Hubungi Saya</h2>
-      <p class="section-desc">
-        <!-- GANTI: kalimat penutup ajakan kontak -->
-        Terbuka untuk kolaborasi, diskusi project, atau sekadar menyapa.
-      </p>
+  <section id="karya" class="section">
+    <div class="wrap">
+      <h2>Karya pilihan</h2>
+      <div id="filters" class="filters" role="group" aria-label="Filter kategori"></div>
+      <div id="grid" class="grid"></div>
+    </div>
+  </section>
 
-      <ul class="contact-list">
-        <!-- GANTI: sesuaikan link & isi kontak kamu -->
-        <li>
-          <span class="contact-label">Email</span>
-          <a href="mailto:ezraartapra@gmail.com" class="contact-value">ezraartapra@gmail.com</a>
-        </li>
-        <li>
-          <span class="contact-label">WhatsApp</span>
-          <a href="https://wa.me/6288293002370" class="contact-value">+62 882-9300-2370</a>
-        </li>
-        <li>
-          <span class="contact-label">Instagram</span>
-          <a href="https://instagram.com/zraartaa" class="contact-value">@zraartaa</a>
-        </li>
-        <li>
-          <span class="contact-label">LinkedIn</span>
-          <a href="https://linkedin.com/in/ezra-arta-praditya" class="contact-value">/in/Ezra Arta Praditya</a>
-        </li>
+  <section id="kontak" class="section contact">
+    <div class="wrap">
+      <h2>Punya proyek? Mari bicara.</h2>
+      <a class="big-mail" href="mailto:ezraartapra@gmail.com">ezraartapra@gmail.com</a>
+      <ul class="links">
+        <li><a href="https://wa.me/6288293002370" target="_blank" rel="noopener">WhatsApp <span>+62 882-9300-2370</span></a></li>
+        <li><a href="https://instagram.com/zraartaa" target="_blank" rel="noopener">Instagram <span>@zraartaa</span></a></li>
+        <li><a href="https://linkedin.com/in/ezra-arta-praditya" target="_blank" rel="noopener">LinkedIn <span>Ezra Arta Praditya</span></a></li>
       </ul>
-
-      <p class="footer-note">© <span id="year"></span> Ezra Arta Praditya. Dibuat dengan Hati.</p>
     </div>
-  </footer>
-
+  </section>
 </main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="year"></span> Ezra Arta Praditya</span>
+    <a href="#top">Kembali ke atas ↑</a>
+  </div>
+</footer>
+
+<div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-label="Pratinjau karya" aria-hidden="true">
+  <div class="lb-bg" id="lbBg"></div>
+  <button id="lbClose" class="lb-btn lb-close" aria-label="Tutup">✕</button>
+  <button id="lbPrev" class="lb-btn lb-prev" aria-label="Karya sebelumnya">‹</button>
+  <button id="lbNext" class="lb-btn lb-next" aria-label="Karya berikutnya">›</button>
+  <figure class="lb-fig">
+    <img id="lbImg" src="" alt="">
+    <figcaption><b id="lbTitle"></b><span id="lbDesc"></span><small id="lbCount"></small></figcaption>
+  </figure>
+</div>
 
 <script src="script.js"></script>
 </body>
-    </html>
+</html>
